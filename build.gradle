@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.3'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.springai'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// TensorFlow (for machine learning)
+	implementation 'org.tensorflow:tensorflow:2.9.0'
+
+	// OpenAI API (for NLP, GPT models, etc.)
+	implementation 'com.openai:openai-api-client:1.0.0'
+
+	// Apache Commons Math (for general AI/ML algorithms)
+	implementation 'org.apache.commons:commons-math3:3.6.1'
+
+	// Jackson (for JSON processing)
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
